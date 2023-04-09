@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "811457355325",
+    "project_id": "family-job-board",
+    "storage_bucket": "family-job-board.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:811457355325:android:dc95ffbbecee286339d454",
+        "android_client_info": {
+          "package_name": "com.example.family_job_board"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "811457355325-ucenui5h931a9lk40ec7c240ui1o1jsr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyABPHew_fZQlAzn3miY2mUtrsoOi2rXMTE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "811457355325-ucenui5h931a9lk40ec7c240ui1o1jsr.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "811457355325-9caevrc3kv080008ahs2gdk30ha94l7j.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.familyJobBoard"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
