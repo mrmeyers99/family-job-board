@@ -6,7 +6,9 @@ import 'login_page.dart';
 
 class ProfilePage extends StatefulWidget {
   final User user;
+
   const ProfilePage({required this.user});
+
   @override
   _ProfilePageState createState() => _ProfilePageState();
 }
@@ -44,25 +46,34 @@ class _ProfilePageState extends State<ProfilePage> {
             const SizedBox(height: 16.0),
             _currentUser.emailVerified
                 ? Text(
-              'Email verified',
-              style: Theme.of(context)
-                  .textTheme
-                  .bodyText1!
-                  .copyWith(color: Colors.green),
-            )
+                    'Email verified',
+                    style: Theme.of(context)
+                        .textTheme
+                        .bodyLarge!
+                        .copyWith(color: Colors.green),
+                  )
                 : Text(
-              'Email not verified',
-              style: Theme.of(context)
-                  .textTheme
-                  .bodyText1!
-                  .copyWith(color: Colors.red),
-            ),
-            ElevatedButton(
-              onPressed: () async {
-                await _currentUser.sendEmailVerification();
-              },
-              child: const Text('Verify email'),
-            ),
+                    'Email not verified',
+                    style: Theme.of(context)
+                        .textTheme
+                        .bodyLarge!
+                        .copyWith(color: Colors.red),
+                  ),
+            _currentUser.emailVerified
+                ? Container()
+                : ElevatedButton(
+                    onPressed: () async {
+
+                      setState(() {
+                        _isSendingVerification = true;
+                      });
+                      await _currentUser.sendEmailVerification();
+                      setState(() {
+                        _isSendingVerification = false;
+                      });
+                    },
+                    child: const Text('Verify email'),
+                  ),
             IconButton(
               icon: const Icon(Icons.refresh),
               onPressed: () async {
@@ -84,8 +95,7 @@ class _ProfilePageState extends State<ProfilePage> {
                     ),
                   );
                 },
-                child: const Text('Sign out')
-            ),            // and, signing out the user
+                child: const Text('Sign out')), // and, signing out the user
           ],
         ),
       ),
