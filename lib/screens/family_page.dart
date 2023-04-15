@@ -41,9 +41,9 @@ class _FamilyPageState extends State<FamilyPage> {
         drawer: MyMenuBar(user: _currentUser),
         floatingActionButton: FloatingActionButton(
             onPressed: () {
-              // Navigator.push(context, MaterialPageRoute(
-              //   builder: (context) => EditChildPage(),
-              // ));
+              Navigator.push(context, MaterialPageRoute(
+                builder: (context) => EditChildPage(Child.blank(_currentUser.uid)),
+              ));
             },
             child: const Icon(Icons.add)
         ),
@@ -91,7 +91,6 @@ class _FamilyPageState extends State<FamilyPage> {
 
   Widget childCard(Child child, BuildContext context) {
     return Card(
-      color: Colors.yellow[50],
       elevation: 8.0,
       margin: const EdgeInsets.all(4.0),
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),

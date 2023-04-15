@@ -1,3 +1,4 @@
+import 'package:family_job_board/AppConstants.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:logging/logging.dart';
@@ -21,7 +22,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        primarySwatch: Colors.teal,
+        // primaryColor: AppConstants.primaryColor,
+        colorScheme: const ColorScheme(primary: AppConstants.primaryColor, brightness: Brightness.light, onPrimary: AppConstants.text, secondary: AppConstants.accent, onSecondary: AppConstants.secondaryText, error: AppConstants.accent, onError: AppConstants.text, background: AppConstants.lightPrimaryColor, onBackground: AppConstants.text, surface: AppConstants.lightPrimaryColor, onSurface: AppConstants.text),
       ),
       home: LoginPage(),
     );
