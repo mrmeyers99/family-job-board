@@ -26,6 +26,30 @@ class Validator {
     return null;
   }
 
+  static bool _isInt(String? s) {
+    if (s == null) {
+      return false;
+    }
+    return int.tryParse(s) != null;
+  }
+
+  static String? validateAge({required String? email}) {
+    if (email == null) {
+      return null;
+    }
+
+    if (!_isInt(email)) {
+      return 'Age must be a number';
+    }
+
+    final intAge = int.parse(email);
+    if (intAge < 0 || intAge > 110) {
+      return 'Age must be between 0 and 110 (inclusive)';
+    }
+
+    return null;
+  }
+
   static String? validatePassword({required String? password}) {
     if (password == null) {
       return null;
