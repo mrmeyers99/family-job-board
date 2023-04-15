@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 import '../fire_auth.dart';
+import '../widgets/menu_bar.dart';
 import 'login_page.dart';
 
 class ProfilePage extends StatefulWidget {
@@ -15,7 +16,6 @@ class ProfilePage extends StatefulWidget {
 
 class _ProfilePageState extends State<ProfilePage> {
   bool _isSendingVerification = false;
-  bool _isSigningOut = false;
   late User _currentUser;
 
   @override
@@ -30,6 +30,7 @@ class _ProfilePageState extends State<ProfilePage> {
       appBar: AppBar(
         title: const Text('Profile'),
       ),
+      drawer: MyMenuBar(user: _currentUser),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -63,7 +64,6 @@ class _ProfilePageState extends State<ProfilePage> {
                 ? Container()
                 : ElevatedButton(
                     onPressed: () async {
-
                       setState(() {
                         _isSendingVerification = true;
                       });
